@@ -53,8 +53,8 @@ nav {
 }
 
 .brand-text {
-  color: #fff;
-  font-size: 24px;
+  color: maroon;
+  font-size: 28px;
   font-weight: 600;
 }
 
@@ -559,8 +559,9 @@ text-shadow: 0 0 8px rgba(128, 0, 0, 0.8), 0 0 12px rgba(128, 0, 0, 0.6);
   }
 
   .brand-text {
-    font-size: 16px;
+    font-size: 17px;
     margin-right: 23px;
+    color:maroon;
   }
 
   .logo {

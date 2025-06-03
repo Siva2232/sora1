@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sora Dental</title>
+  <link rel="stylesheet" href="indeex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="hero">
+    <video autoplay loop muted playsinline class="backvideo">
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+      <div class="nav-left">
+        <span class="brand-text">Sora Dental</span>
+      </div>
+      <div class="nav-center">
+        <img src="lo.png" class="logo" alt="Logo">
+      </div>
+      <div class="nav-right">
+        <a href="next/indexz.html" class="get-appointment-btn">Get Appointment</a>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a href="#" class="appointment-btn">Get Consultation</a>
+      </div>
+    </nav>
+
+    <div class="menu">
+      <a href="#">Services</a>
+      <a href="#">Contact Us</a>
+      <a href="next/indexz.html" class="appointment-btn">Get Consultation</a>
+    </div>
+
+    <div class="content">
+      <h1>Sora Dental</h1>
+      <a href="" class="app">Get Appointment</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="gallery">
+     <h2 class="section-heading animate-slide">Our Services</h2>
+      <div class="row">
+        <div class="card rectangle">
+          <img src="dental ckeckup.png" alt="Dental Checkup">
+          <div class="card-text">Dental Checkup <span class="arrow">→</span></div>
+        </div>
+        <div class="card square">
+          <img src="white.png" alt="Teeth Whitening">
+          <div class="card-text">Teeth Whitening <span class="arrow">→</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card square">
+          <img src="ortho.png" alt="Orthodontics">
+          <div class="card-text">Orthodontics <span class="arrow">→</span></div>
+        </div>
+        <div class="card rectangle" >
+          <img src="dental.png" alt="Dental Implants">
+          <div class="card-text">Dental Implants <span class="arrow">→</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card rectangle">
+          <img src="root.png" alt="Root Canal">
+          <div class="card-text">Root Canal <span class="arrow">→</span></div>
+        </div>
+        <div class="card square"">
+          <img src="dentistry.png" alt="Cosmetic Dentistry">
+          <div class="card-text">Cosmetic Dentistry <span class="arrow">→</span></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card square" >
+          <img src="pedia.png" alt="Pediatric Dentistry">
+          <div class="card-text">Pediatric Dentistry <span class="arrow">→</span></div>
+        </div>
+        <div class="card rectangle">
+          <img src="care.png" alt="Emergency Care">
+          <div class="card-text">Emergency Care <span class="arrow">→</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+   <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column" data-animate>
+      <h3>Sora Dental</h3>
+      <p>Transforming smiles with exceptional care and cutting-edge dental solutions.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-column" data-animate>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="indexz.html">Get Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-column" data-animate>
+      <h3>Contact Info</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Smile St, Dental City, DC 12345</p>
+      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> info@soradental.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Sora Dental. All rights reserved.</p>
+  </div>
+</footer>
+
+ <script>
+  const hamburger = document.querySelector('.hamburger');
+  const menu = document.querySelector('.menu');
+  const serviceCards = document.querySelectorAll('.card');
+
+  // Toggle menu when hamburger is clicked
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // Close menu on menu item click
+  menu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('active');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // Scroll animation for cards using Intersection Observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // animate once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  serviceCards.forEach(card => observer.observe(card));
+  const footerColumns = document.querySelectorAll('.footer-column');
+const footerObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.setAttribute('data-animate', 'visible');
+        }, index * 200); // Staggered animation
+        footerObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+footerColumns.forEach(column => footerObserver.observe(column));
+</script>
+
+</body>
+</html>

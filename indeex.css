@@ -217,7 +217,7 @@ nav {
 
 .content h1 {
   font-size: 170px;
-  color: #fff;
+  color: ;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
@@ -560,8 +560,9 @@ section {
   }
 
   .brand-text {
-    font-size: 16px;
+    font-size: 18px;
     margin-right: 23px;
+    color: #0095b6;
   }
 
   .logo {

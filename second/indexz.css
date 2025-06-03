@@ -152,7 +152,7 @@ nav {
 .hamburger span {
   width: 100%;
   height: 3px;
-  background-color: #fff;
+  background-color: maroon;
 }
 
 .hamburger.active span:nth-child(1) {

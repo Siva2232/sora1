@@ -793,7 +793,7 @@ section {
   }
 }
  /* Loading Page Styles */
-    .loader-container {
+  .loader-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -814,8 +814,10 @@ section {
     }
 
     .teeth-logo {
-      width: 120px;
-      height: 120px;
+      width: 30vw; /* Scales with viewport width */
+      max-width: 120px; /* Caps size for larger screens */
+      min-width: 80px; /* Ensures logo isn't too small on mobile */
+      height: auto;
       position: relative;
       animation: pulse 1.5s infinite ease-in-out;
     }
@@ -827,17 +829,18 @@ section {
     }
 
     .loading-text {
-      margin-top: 20px;
-      font-size: 1.2em;
+      margin-top: 2vh;
+      font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
       color: #333;
-      letter-spacing: 2px;
+      letter-spacing: 0.1em;
       opacity: 0.8;
       font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     .loading-counter {
-      margin-top: 10px;
-      font-size: 1.5em;
+      margin-top: 1vh;
+      font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
       font-weight: bold;
       color: #3498db;
       font-family: Arial, sans-serif;
@@ -855,6 +858,33 @@ section {
       100% {
         transform: scale(1);
         opacity: 1;
+      }
+    }
+
+    /* Media Queries for Mobile Responsiveness */
+    @media screen and (max-width: 600px) {
+      .teeth-logo {
+        width: 25vw; /* Slightly smaller on mobile */
+        max-width: 100px;
+        min-width: 60px;
+      }
+
+      .loading-text {
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
+        margin-top: 1.5vh;
+        padding: 0 10px; /* Prevent text overflow on small screens */
+      }
+
+      .loading-counter {
+        font-size: clamp(1rem, 3.5vw, 1.3rem);
+        margin-top: 0.8vh;
+      }
+    }
+
+    @media screen and (max-height: 500px) {
+      .loader-container {
+        justify-content: flex-start; /* Adjust for low-height devices */
+        padding-top: 10vh;
       }
     }
 

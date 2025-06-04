@@ -9,32 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="loader-container">
-    <div class="particle-bg">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-    <div class="pulse-overlay"></div>
-    <div class="teeth-logo-container">
-      <svg class="progress-ring" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45"></circle>
-      </svg>
-      <div class="teeth-logo">
-        <img src="lo.png" alt="Sora Dental Logo" loading="eager">
-      </div>
-      <div class="progress-counter" aria-live="polite">0%</div>
-    </div>
-    <div class="loading-text">Sora Dental - Loading...</div>
-  </div>
-
   <div class="hero">
     <video autoplay loop muted playsinline class="backvideo">
       <source src="video2.mp4" type="video/mp4">
@@ -137,9 +111,9 @@
     </div>
     <div class="footer-column" data-animate>
       <h3>Contact Info</h3>
-       <p><i class="fas fa-map-marker-alt"></i>Third Floor, Plot no 8-1 & 8-2, Khajaguda - Nanakramguda Rd, Prashant Hills, Rai Durg, Hyderabad, Telangana 500032</p>
-      <p><i class="fas fa-phone"></i>093987 20680</p>
-      <p><i class="fas fa-envelope"></i>info@soradental.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Smile St, Dental City, DC 12345</p>
+      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> info@soradental.com</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -148,35 +122,6 @@
 </footer>
 
  <script>
- // Loading page logic with percentage counter
-    window.onload = () => {
-      const loader = document.querySelector('.loader-container');
-      const mainContent = document.querySelector('.main-content');
-      const counter = document.querySelector('.progress-counter');
-      let count = 0;
-      const duration = 3000; // 3 seconds
-      const incrementTime = duration / 100; // Time per percentage point
-
-      const updateCounter = () => {
-        if (count <= 100) {
-          counter.textContent = `${count}%`;
-          count++;
-          setTimeout(updateCounter, incrementTime);
-        } else {
-          loader.classList.add('hidden');
-          mainContent.classList.add('loaded');
-        }
-      };
-
-      updateCounter();
-    };
-
-
-
-
-
-
-   
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.menu');
   const serviceCards = document.querySelectorAll('.card');

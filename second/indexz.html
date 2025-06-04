@@ -149,10 +149,10 @@
 
  <script>
  // Loading page logic with percentage counter
-    window.onload = function() {
+    window.onload = () => {
       const loader = document.querySelector('.loader-container');
       const mainContent = document.querySelector('.main-content');
-      const counter = document.querySelector('.loading-counter');
+      const counter = document.querySelector('.progress-counter');
       let count = 0;
       const duration = 3000; // 3 seconds
       const incrementTime = duration / 100; // Time per percentage point
@@ -170,6 +170,7 @@
 
       updateCounter();
     };
+
 
 
 

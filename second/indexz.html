@@ -129,6 +129,35 @@
 </footer>
 
  <script>
+
+ // Loading page logic with percentage counter
+    window.onload = function() {
+      const loader = document.querySelector('.loader-container');
+      const mainContent = document.querySelector('.main-content');
+      const counter = document.querySelector('.loading-counter');
+      let count = 0;
+      const duration = 3000; // 3 seconds
+      const incrementTime = duration / 100; // Time per percentage point
+
+      const updateCounter = () => {
+        if (count <= 100) {
+          counter.textContent = `${count}%`;
+          count++;
+          setTimeout(updateCounter, incrementTime);
+        } else {
+          loader.classList.add('hidden');
+          mainContent.classList.add('loaded');
+        }
+      };
+
+      updateCounter();
+    };
+
+
+
+
+
+   
   const hamburger = document.querySelector('.hamburger');
   const menu = document.querySelector('.menu');
   const serviceCards = document.querySelectorAll('.card');

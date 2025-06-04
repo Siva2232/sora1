@@ -793,141 +793,344 @@ text-shadow: 0 0 8px rgba(128, 0, 0, 0.8), 0 0 12px rgba(128, 0, 0, 0.6);
 }
 
  /* Loading Page Styles */
+    /* Loading Page Styles */
     .loader-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffffff 0%, #800000 100%);
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-      overflow: hidden;
+      position: fixed ;
+      top: 0 ;
+      left: 0 ;
+      width: 100vw ;
+      height: 100vh ;
+      display: flex ;
+      flex-direction: column ;
+      justify-content: center ;
+      align-items: center ;
+      background:white;
+      z-index: 9999 ;
+      transition: opacity 0.5s ease ;
+      overflow: hidden ;
     }
 
     .loader-container.hidden {
-      opacity: 0;
-      pointer-events: none;
+      opacity: 0 ;
+      pointer-events: none ;
+    }
+
+    /* Particle Wave Background */
+    .particle-bg {
+      position: absolute ;
+      top: 0 ;
+      left: 0 ;
+      width: 100% ;
+      height: 100% ;
+      overflow: hidden ;
+      z-index: 1 ;
+      opacity: 0.3 ; /* Subtle overlay */
+    }
+
+    .particle {
+      position: absolute ;
+      background: maroon;
+      border-radius: 50% ;
+      opacity: 0.6 ;
+      animation: wave 5s ease-in-out infinite ;
+    }
+
+    /* Generate 10 particles with varying sizes and delays */
+    .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; top: 20%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 6px; height: 6px; left: 30%; top: 40%; animation-delay: 0.5s; }
+    .particle:nth-child(3) { width: 10px; height: 10px; left: 50%; top: 60%; animation-delay: 1s; }
+    .particle:nth-child(4) { width: 7px; height: 7px; left: 70%; top: 30%; animation-delay: 1.5s; }
+    .particle:nth-child(5) { width: 9px; height: 9px; left: 20%; top: 50%; animation-delay: 2s; }
+    .particle:nth-child(6) { width: 5px; height: 5px; left: 40%; top: 70%; animation-delay: 2.5s; }
+    .particle:nth-child(7) { width: 8px; height: 8px; left: 60%; top: 10%; animation-delay: 3s; }
+    .particle:nth-child(8) { width: 6px; height: 6px; left: 80%; top: 80%; animation-delay: 3.5s; }
+    .particle:nth-child(9) { width: 10px; height: 10px; left: 25%; top: 90%; animation-delay: 4s; }
+    .particle:nth-child(10) { width: 7px; height: 7px; left: 45%; top: 25%; animation-delay: 4.5s; }
+
+    /* Radial Pulse Overlay */
+    .pulse-overlay {
+      position: absolute ;
+      top: 50% ;
+      left: 50% ;
+      width: 200px ;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%) ;
+      border-radius: 50% ;
+      transform: translate(-50%, -50%) ;
+      animation: pulse 4s ease-in-out infinite ;
+      z-index: 2 ;
+    }
+
+    .teeth-logo-container {
+      position: relative ;
+      width: 35vw ;
+      max-width: 140px ;
+      min-width: 70px ;
+      height: 35vw ;
+      max-height: 140px ;
+      min-height: 70px ;
+      display: flex ;
+      justify-content: center ;
+      align-items: center ;
+      z-index: 3 ;
     }
 
     .teeth-logo {
-      width: 30vw;
-      max-width: 120px;
-      min-width: 60px;
-      height: auto;
-      position: relative;
-      animation: pulse 1.5s infinite ease-in-out;
+      width: 60% ;
+      height: auto ;
+      position: absolute ;
+      animation: spinAndScale 2s ease-in-out infinite ;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)) ;
     }
 
     .teeth-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
+      width: 100% ;
+      height: 100% ;
+      object-fit: contain ;
+      display: block ;
+    }
+
+    .progress-ring {
+      position: absolute ;
+      width: 100% ;
+      height: 100% ;
+      animation: rotateRing 6s linear infinite ;
+    }
+
+    .progress-ring circle {
+      fill: none ;
+      stroke: maroon;
+      stroke-width: 8 ;
+      stroke-linecap: round ;
+      cx: 50% ;
+      cy: 50% ;
+      r: calc(50% - 4px) ;
+      stroke-dasharray: 283 ;
+      stroke-dashoffset: 283 ;
+      animation: fillRing 3s linear forwards ;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) ;
+    }
+
+    .progress-counter {
+      position: absolute ;
+      top: 50% ;
+      left: 50% ;
+      transform: translate(-50%, -50%) ;
+      font-size: clamp(0.8rem, 2.5vw, 1rem) ;
+      font-weight: 700 ;
+      color: maroon;
+      font-family: 'Montserrat', Arial, sans-serif ;
+      text-align: center ;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.3) ;
+      z-index: 4 ;
     }
 
     .loading-text {
-      margin-top: 2vh;
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-      color: #333;
-      letter-spacing: 0.1em;
-      opacity: 0.8;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      max-width: 90vw; /* Prevent text overflow */
-      line-height: 1.4;
+      margin-top: 2.5vh ;
+      font-size: clamp(1rem, 2.8vw, 1.3rem) ;
+      color: maroon;
+      letter-spacing: 0.18em ;
+      font-family: 'Montserrat', Arial, sans-serif ;
+      text-align: center ;
+      max-width: 90vw ;
+      line-height: 1.5 ;
+      opacity: 0 ;
+      animation: typing 2s steps(20) forwards, blink 0.5s step-end infinite alternate ;
+      white-space: nowrap ;
+      overflow: hidden ;
+      border-right: 2px solid #ffffff ;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.3) ;
+      z-index: 3 ;
     }
 
-    .loading-counter {
-      margin-top: 1vh;
-      font-size: clamp(1rem, 3vw, 1.3rem);
-      font-weight: bold;
-      color: #3498db;
-      font-family: Arial, sans-serif;
-    }
-
-    @keyframes pulse {
+    /* Particle Wave Animation */
+    @keyframes wave {
       0% {
-        transform: scale(1);
-        opacity: 1;
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
       }
       50% {
-        transform: scale(1.15);
-        opacity: 0.85;
+        transform: translateY(-20px) translateX(10px);
+        opacity: 0.8;
       }
       100% {
-        transform: scale(1);
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+      }
+    }
+
+    /* Radial Pulse Animation */
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+      }
+    }
+
+    /* Logo Animation: Spin and Scale */
+    @keyframes spinAndScale {
+      0% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+      }
+      50% {
+        transform: rotate(180deg) scale(1.2);
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+      }
+    }
+
+    /* Circular Progress Ring Animation */
+    @keyframes fillRing {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes rotateRing {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Typing Animation for Text */
+    @keyframes typing {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+      to {
+        width: 100%;
         opacity: 1;
       }
     }
 
-    /* Enhanced Media Queries */
-    @media screen and (max-width: 600px) {
-      .teeth-logo {
-        width: 25vw;
-        max-width: 100px;
-        min-width: 50px;
-      }
-
-      .loading-text {
-        font-size: clamp(0.8rem, 2.2vw, 1rem);
-        margin-top: 1.5vh;
-        padding: 0 5vw;
-      }
-
-      .loading-counter {
-        font-size: clamp(0.9rem, 2.8vw, 1.2rem);
-        margin-top: 0.8vh;
+    @keyframes blink {
+      50% {
+        border-color: transparent;
       }
     }
 
-    @media screen and (max-width: 400px) {
-      .teeth-logo {
-        width: 20vw;
-        max-width: 80px;
-        min-width: 40px;
+    /* Enhanced Media Queries for Mobile */
+    @media screen and (max-width: 480px) {
+      .teeth-logo-container {
+        width: 30vw ;
+        max-width: 120px ;
+        min-width: 60px ;
+        height: 30vw ;
+        max-height: 120px ;
+        min-height: 60px ;
+      }
+
+      .progress-ring circle {
+        stroke-width: 6 ;
+      }
+
+      .progress-counter {
+        font-size: clamp(0.7rem, 2.2vw, 0.9rem) ;
       }
 
       .loading-text {
-        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        font-size: clamp(0.8rem, 2.2vw, 1rem) ;
+        margin-top: 2vh ;
+        padding: 0 5vw ;
       }
 
-      .loading-counter {
-        font-size: clamp(0.8rem, 2.5vw, 1rem);
+      .pulse-overlay {
+        width: 150px ;
+        height: 150px ;
+      }
+
+      .particle {
+        width: 5px ;
+        height: 5px ;
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .teeth-logo-container {
+        width: 25vw ;
+        max-width: 100px ;
+        min-width: 50px ;
+        height: 25vw ;
+        max-height: 100px ;
+        min-height: 50px ;
+      }
+
+      .progress-ring circle {
+        stroke-width: 5 ;
+      }
+
+      .progress-counter {
+        font-size: clamp(0.6rem, 2vw, 0.8rem) ;
+      }
+
+      .loading-text {
+        font-size: clamp(0.7rem, 2vw, 0.9rem) ;
+        padding: 0 3vw ;
+      }
+
+      .pulse-overlay {
+        width: 120px ;
+        height: 120px ;
+      }
+
+      .particle {
+        width: 4px ;
+        height: 4px ;
       }
     }
 
     @media screen and (max-height: 500px) {
       .loader-container {
-        justify-content: flex-start;
-        padding-top: 5vh;
+        justify-content: flex-start ;
+        padding-top: 5vh ;
       }
 
-      .teeth-logo {
-        max-width: 80px;
+      .teeth-logo-container {
+        max-width: 100px ;
+        max-height: 100px ;
+      }
+
+      .progress-ring circle {
+        stroke-width: 5 ;
+      }
+
+      .progress-counter {
+        font-size: clamp(0.6rem, 2vw, 0.8rem) ;
       }
 
       .loading-text {
-        margin-top: 1vh;
+        margin-top: 1vh ;
         font-size: clamp(0.7rem, 2vw, 0.9rem);
       }
 
-      .loading-counter {
-        margin-top: 0.5vh;
-        font-size: clamp(0.8rem, 2.5vw, 1rem);
+      .pulse-overlay {
+        width: 100px;
+        height: 100px;
       }
     }
 
     /* Ensure main content is hidden during loading */
     .main-content {
-      opacity: 0;
-      transition: opacity 0.5s ease;
+      opacity: 0 !;
+      transition: opacity 0.5s ease ;
     }
 
     .main-content.loaded {
-      opacity: 1;
+      opacity: 1 ;
     }

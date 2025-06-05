@@ -303,16 +303,18 @@ nav {
   }
 }
 
-.container {
-      max-width: 1200px;
-      margin: 50px auto;
-      display: flex;
-      gap: 40px;
-      padding: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
+ .container {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; /* ← Make sure it's row (not row-reverse) */
+}
+
 
    .image-section {
   flex: 1 1 400px;
